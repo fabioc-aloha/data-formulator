@@ -10,3 +10,13 @@ dist
 build
 .pytest_cache
 .mypy_cache
+
+# Local dev artifacts (added 2026-07-22 for cloud-build hygiene)
+.venv/
+venv/
+.github/
+.vscode/
+fabio/
+docs/
+tests/
+*.log
