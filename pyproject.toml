@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools >= 75.0"]
+requires = [ "setuptools >= 75.0" ]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,8 +8,8 @@ version = "0.8.0b1"
 
 requires-python = ">=3.11"
 authors = [
-  { name = "Chenglong Wang", email = "chenglong.wang@microsoft.com" },
-  { name = "Dan Marshall", email = "danmar@microsoft.com" },
+  {name = "Chenglong Wang", email = "chenglong.wang@microsoft.com"},
+  {name = "Dan Marshall", email = "danmar@microsoft.com"},
 ]
 readme = "README.md"
 license = "MIT"
@@ -17,53 +17,54 @@ description = "Data Formulator is a research prototype for data visualization po
 keywords = ["data visualization", "LLM", "AI"]
 classifiers = [
   "Development Status :: 4 - Beta",
-  "Programming Language :: Python",
+  "Programming Language :: Python"
 ]
 
 dependencies = [
-  "pandas",
-  "flask",
-  "flask-cors",
-  "flask-limiter",
-  "openai",
-  "python-dotenv",
-  # litellm 1.92+ switched to a Rust/maturin build and ships manylinux-only
-  # wheels (no win_amd64 / macosx / py3-none-any), so installs hang on
-  # Windows/macOS without a Rust toolchain. Pin to the last universal-wheel
-  # line; >=1.84.0 keeps the litellm CVE fix and allows aiohttp>=3.14.
-  "litellm>=1.84.0,<1.92",
-  "duckdb",
-  "numpy",
-  "vl-convert-python",
-  "beautifulsoup4",
-  "scikit-learn",
-  "pyyaml",
-  "pyarrow>=13.0.0",
-  "xlrd",
-  "openpyxl>=3.1.0",
-  "lxml",                  # pandas.read_html web table extraction
-  "yfinance",
-  # Data-loader deps (all included by default; try/except keeps things safe)
-  "pymongo",                  # mongodb
-  "azure-cosmos",             # cosmosdb
-  "azure-storage-blob",       # azure_blob
-  "azure-identity",           # azure_blob, kusto
-  "azure-kusto-data",         # kusto
-  "azure-keyvault-secrets",   # kusto
-  "pymysql",                  # mysql
-  "clickhouse-connect",     # clickhouse
-  "mssql-python>=1.11.0", # mssql
-  "psycopg2-binary",          # postgresql
-  "boto3",                    # s3, athena
-  "google-cloud-bigquery",    # bigquery
-  "google-auth",              # bigquery
-  "db-dtypes",                # bigquery
-  "databricks-sql-connector", # databricks
-  # SSO / Auth deps
-  "PyJWT[crypto]>=2.8.0", # OIDC JWT verification (includes cryptography)
-  "requests",             # GitHub OAuth code exchange, Superset API calls
-  "flask-session>=0.8.0", # Server-side session (SQLite) for TokenStore
-  "mcp[cli]>=1.2.0",      # Governed MCP gateway and streamable HTTP client
+    "pandas",
+    "flask",
+    "flask-cors",
+    "flask-limiter",
+    "openai",
+    "python-dotenv",
+    # litellm 1.92+ switched to a Rust/maturin build and ships manylinux-only
+    # wheels (no win_amd64 / macosx / py3-none-any), so installs hang on
+    # Windows/macOS without a Rust toolchain. Pin to the last universal-wheel
+    # line; >=1.84.0 keeps the litellm CVE fix and allows aiohttp>=3.14.
+    "litellm>=1.84.0,<1.92",
+    "aiohttp>=3.14.3",
+    "duckdb",
+    "numpy",
+    "vl-convert-python",
+    "beautifulsoup4",
+    "scikit-learn",
+    "pyyaml",
+    "pyarrow>=13.0.0",
+    "xlrd",
+    "openpyxl>=3.1.0",
+    "lxml", # pandas.read_html web table extraction
+    "yfinance",
+    # Data-loader deps (all included by default; try/except keeps things safe)
+    "pymongo", # mongodb
+    "azure-cosmos", # cosmosdb
+    "azure-storage-blob", # azure_blob
+    "azure-identity", # azure_blob, kusto
+    "azure-kusto-data", # kusto
+    "azure-keyvault-secrets", # kusto
+    "pymysql", # mysql
+    "clickhouse-connect", # clickhouse
+    "mssql-python>=1.11.0", # mssql
+    "psycopg2-binary", # postgresql
+    "boto3", # s3, athena
+    "google-cloud-bigquery", # bigquery
+    "google-auth", # bigquery
+    "db-dtypes", # bigquery
+    "databricks-sql-connector", # databricks
+    # SSO / Auth deps
+    "PyJWT[crypto]>=2.8.0", # OIDC JWT verification (includes cryptography)
+    "requests", # GitHub OAuth code exchange, Superset API calls
+    "flask-session>=0.8.0", # Server-side session (SQLite) for TokenStore
+    "mcp[cli]>=1.2.0", # Governed MCP gateway and streamable HTTP client
 ]
 
 [project.optional-dependencies]
@@ -83,7 +84,7 @@ Repository = "https://github.com/microsoft/data-formulator.git"
 "Bug Tracker" = "https://github.com/microsoft/data-formulator/issues"
 
 [tool.setuptools]
-package-dir = { "" = "py-src" }
+package-dir = {"" = "py-src"}
 include-package-data = true
 
 [tool.setuptools.packages.find]
@@ -104,7 +105,11 @@ data_formulator = "data_formulator:run_app"
 data_formulator_desktop = "data_formulator.desktop:run_desktop"
 
 [tool.uv]
-dev-dependencies = ["build", "pytest"]
+dev-dependencies = [
+    "build",
+    "pytest",
+]
+
 [[tool.uv.index]]
 name = "microsoft-package-feed"
 url = "https://packagefeedproxy.microsoft.io/pypi/simple"
