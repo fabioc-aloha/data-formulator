@@ -28,6 +28,7 @@ azure-identity
 azure-kusto-data
 azure-keyvault-secrets
 pymysql
+clickhouse-connect
 mssql-python>=1.11.0
 psycopg2-binary
 boto3
@@ -43,5 +44,4 @@ flask-session>=0.8.0
 
 # Governed MCP gateway and streamable HTTP client
 mcp[cli]>=1.2.0
-
 -e .
