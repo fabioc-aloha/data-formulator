@@ -6,6 +6,7 @@ flask-limiter
 gunicorn>=23.0.0
 openai
 python-dotenv
+aiohttp>=3.14.3
 litellm==1.91.1
 duckdb
 numpy

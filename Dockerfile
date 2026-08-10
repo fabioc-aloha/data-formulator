@@ -58,8 +58,14 @@ COPY py-src ./py-src
 # Copy the compiled frontend into the package's expected location
 COPY --from=frontend-builder /app/py-src/data_formulator/dist ./py-src/data_formulator/dist
 
-# Install the package and its dependencies
-RUN pip install --no-cache-dir .
+# Upgrade the packaging toolchain to Defender's minimum fixed versions, then
+# install the package and its dependencies.
+RUN python -m pip install --no-cache-dir --upgrade \
+    "pip>=26.1.2" \
+    "setuptools>=83.0.0" \
+    "wheel>=0.46.2" \
+    "jaraco.context>=6.1.0" \
+  && python -m pip install --no-cache-dir .
 
 # Switch to non-root user and ensure workspace and app directories are owned by it
 RUN mkdir -p "${DATA_FORMULATOR_HOME}" && chown -R appuser:appuser /app "${DATA_FORMULATOR_HOME}"
